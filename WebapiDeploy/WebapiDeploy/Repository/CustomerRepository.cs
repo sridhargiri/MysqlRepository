@@ -41,6 +41,26 @@ namespace WebapiDeploy.Repository
                 throw;
             }
         }
+        public void Delete(int id)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var found = context.Customers.Where(x => x.CustomerID == id).First();
+                    if (found != null)
+                    {
+                        context.Customers.Remove(found);
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
 
     }
 
