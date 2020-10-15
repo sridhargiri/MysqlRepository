@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "e6b6ba22-a2c8-44fd-b35e-84285bfb1592",
+		"name": "c1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getall",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sridharidc.azurewebsites.net/player",
+					"protocol": "https",
+					"host": [
+						"sridharidc",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"PlayerName\":\"infoys\",\r\n  \"Kills\":\"10\",\r\n  \"Scores\":\"50\",\r\n  \"Rank\":\"2\",\r\n  \"MatchTime\":\"10/14/2020\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44316/Player/add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44316",
+					"path": [
+						"Player",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
