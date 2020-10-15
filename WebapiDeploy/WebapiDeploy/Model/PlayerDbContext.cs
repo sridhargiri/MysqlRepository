@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace WebapiDeploy.Model
 {
-    public class AppDbContext : DbContext
+    public class PlayerDbContext : DbContext
     {
-        public AppDbContext()
+        public PlayerDbContext()
         {
 
         }
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        public PlayerDbContext(DbContextOptions<PlayerDbContext> options) : base(options)
         {
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -29,8 +29,12 @@ namespace WebapiDeploy.Model
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        { }
-
-        public DbSet<Customer> Customers { get; set; }
+        {
+            modelBuilder.Entity<Player>(entity =>
+            {
+                entity.Property(t => t.PlayerID).HasColumnName("PlayerID");
+            });
+        }
+        public DbSet<Player> Players { get; set; }
     }
 }
